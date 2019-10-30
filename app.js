@@ -1,41 +1,69 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const app = express();
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const flash = require('express-flash');
 
-var app = express();
+const PORT = process.env.PORT || 5000;
+const exphbs = require('express-handlebars');
+const pg = require('pg');
 
+const { Pool } = pg;
+
+let useSSL = false;
+const local = process.env.LOCAL || false;
+if (process.env.DATABASE_URL && !local) {
+  useSSL = true;
+}
+
+const connectionString = process.env.DATABASE_URL || 'postgresql://diction:19970823@localhost:5432/tutor_database';
+
+const pool = new Pool({
+  connectionString,
+  ssl: useSSL,
+});
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+const bodyParser = require('body-parser');
+const indexRouter = require('./routes/reg-number-routes');
+const reg_manager = require('./reg-numbers-manager/reg-function');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+const Instance_for_reg = reg_manager(pool);
+const routes = indexRouter(Instance_for_reg);
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(cookieParser('secret'));
+app.use(
+    session({
+      secret: 'secret',
+      saveUninitialized: true,
+      resave: true,
+    }),
+);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use(express.static('public'));
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+const handlebarSetup = exphbs({
+  partialsDir: './views/partials',
+  viewPath: './views',
+  layoutsDir: './views/layouts',
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.engine('handlebars', handlebarSetup);
+app.set('view engine', 'handlebars');
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+app.use(flash());
+
+app.get('/', routes.index_route);
+app.post('/add', routes.add_route);
+app.post('/add_town', routes.town);
+app.post('/filter', routes.filter);
+app.get('/delete', routes.delete);
+app.get('/delete_towns', routes.delete_towns);
+
+
+app.listen(PORT, () => {
+  console.log('App started at port:', PORT);
 });
-
-module.exports = app;

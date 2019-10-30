@@ -1,6 +1,6 @@
 {
   "name": "my-tutor",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -11,6 +11,23 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
-  }
+    "morgan": "~1.9.1",
+    "pg": "^7.12.1"
+  },
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbuDiction/My-tutor-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbuDiction/My-tutor-app/issues"
+  },
+  "homepage": "https://github.com/sbuDiction/My-tutor-app#readme",
+  "description": ""
 }
