@@ -70,10 +70,7 @@ module.exports = function Mytutor(pool) {
     search_engine: search_database,
     tutors_list: display_tutors,
     build: build_data,
-<<<<<<< HEAD
-    display_tutors: tutors
-=======
+    display_tutors: tutors,
     errors: display_message
->>>>>>> master
   };
 };
