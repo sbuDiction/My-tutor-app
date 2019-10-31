@@ -57,6 +57,11 @@ module.exports = function Mytutor(pool) {
     );
   }
 
+  async function tutors(){
+      let get_tuturs = await pool.query('SELECT * FROM tutors')
+      return get_tuturs.rows;
+  }
+
   const display_tutors = () => tutors_array;
   const display_message = () => error_message;
 
@@ -65,6 +70,10 @@ module.exports = function Mytutor(pool) {
     search_engine: search_database,
     tutors_list: display_tutors,
     build: build_data,
+<<<<<<< HEAD
+    display_tutors: tutors
+=======
     errors: display_message
+>>>>>>> master
   };
 };
