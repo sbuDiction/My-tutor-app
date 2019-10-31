@@ -60,7 +60,7 @@ const instance_for_routes = Routes(instance_for_my_tutor)
 app.get('/', instance_for_routes.index_route);
 app.post('/build', instance_for_routes.build);
 app.get('/tutor_builder', instance_for_routes.tutor_builder);
-
+app.get('/data', instance_for_routes.get)
 
 app.listen(PORT, () => {
   console.log('App started at port:', PORT);

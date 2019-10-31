@@ -60,12 +60,18 @@ module.exports = function Mytutor(pool) {
     );
   }
 
+  async function tutors(){
+      let get_tuturs = await pool.query('SELECT * FROM tutors')
+      return get_tuturs.rows;
+  }
+
   const display_tutors = () => tutors_array;
 
   return {
     add_student_name: getName,
     search_engine: search_database,
     tutors_list: display_tutors,
-    build: build_data
+    build: build_data,
+    display_tutors: tutors
   };
 };
