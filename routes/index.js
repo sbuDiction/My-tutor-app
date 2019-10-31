@@ -30,6 +30,10 @@ module.exports = function(instance_for_my_tutor) {
     res.render("build");
   }
 
+  async function get_tutor(req,res){
+    let 
+  }
+
   return {
     index_route: index,
     build: build_tutor,
