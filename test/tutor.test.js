@@ -1,6 +1,6 @@
 const assert = require('assert');
 const pg = require('pg');
-const Registration_numbers = require('../My-tutor-manager/my_tutor');
+const My_tutor = require('../My-tutor-manager/my_tutor');
 
 const { Pool } = pg;
 
@@ -18,19 +18,18 @@ const pool = new Pool({
 });
 
 // eslint-disable-next-line no-undef
-describe('Registration numbers test', () => {
+describe('My Tutor testing', () => {
     // eslint-disable-next-line no-undef
     beforeEach(async () => {
-        await pool.query('DELETE FROM numbers;');
-        await pool.query('DELETE FROM towns;');
+        await pool.query('DELETE FROM students;');
     });
 
     // eslint-disable-next-line no-undef
     it('Should able to add a plate numbers to database  ', async () => {
-        const reg_number_instance = Registration_numbers(pool);
-        await reg_number_instance.add('CJ 123 123');
+        const instance_for_tutor = My_tutor(pool);
+        await instance_for_tutor.add('CJ 123 123');
 
-        const plate_number = await reg_number_instance.get();
+        const plate_number = await instance_for_tutor.get();
         assert.equal(4, plate_number.length);
     });
     // eslint-disable-next-line no-undef
