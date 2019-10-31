@@ -34,5 +34,5 @@
     "url": "https://github.com/sbuDiction/My-tutor-app/issues"
   },
   "homepage": "https://github.com/sbuDiction/My-tutor-app#readme",
-  "description": ""
+  "description": "[![Build Status](https://travis-ci.org/sbuDiction/My-tutor-app.svg?branch=master)](https://travis-ci.org/sbuDiction/My-tutor-app)"
 }
