@@ -1,10 +1,11 @@
 module.exports = function Mytutor(pool) {
-
   let error_message = "";
-  let tutors_array = [];
-  
+  let newList;
+
   async function getName(name) {
-    let student = name.toUppercase();
+    // console.log(name);
+
+    let student = name.toUpperCase();
     let get_all_names = await pool.query(
       "SELECT * FROM students WHERE student_name = $1",
       [student]
@@ -20,15 +21,14 @@ module.exports = function Mytutor(pool) {
   }
 
   async function search_database(subject, location) {
-    let loc = location.toUppercase();
-    let sub = subject.toUppercase();
-    let get_all_tutors = await pool.query("SELECT * FROM tutors");
-    for (let x = 0; x < get_all_tutors.rows.length; x++) {
-      const location = get_all_tutors.rows[x].tutor_subject;
-      const subject = get_all_tutors.rows[x].tutros_location;
-      if (subject === sub && location === loc) {
-        tutors_array.push(get_all_tutors.rows);
-      }
+    let loc = location.toUpperCase();
+    let sub = subject.toUpperCase();
+    let search_tutor = await pool.query('SELECT * FROM tutors WHERE tutor_subject = $1 OR tutros_location = $2', [sub, loc])
+    if(search_tutor.rows.length !== 0){
+      // console.log(search_tutor.rows, 'found tutor');
+      newList = search_tutor.rows
+      // console.log(newList, 'new list');
+      return newList
     }
   }
 
@@ -57,12 +57,15 @@ module.exports = function Mytutor(pool) {
     );
   }
 
-  async function tutors(){
-      let get_tuturs = await pool.query('SELECT * FROM tutors')
-      return get_tuturs.rows;
+  async function tutors() {
+    let get_tuturs = await pool.query("SELECT * FROM tutors");
+    return get_tuturs.rows;
   }
 
-  const display_tutors = () => tutors_array;
+  const display_tutors = function() {
+    // console.log(newList, "array function");
+    return newList;
+  };
   const display_message = () => error_message;
 
   return {
