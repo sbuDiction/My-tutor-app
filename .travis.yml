@@ -10,7 +10,7 @@ services:
 
 before_script:
   - psql -c 'create database  tutor_database_testing;' -U postgres
-  - psql -U postgres -d tutor_database_testing -a -f databse/tables.sql
+  - psql -U postgres -d tutor_database_testing -a -f database/tables.sql
 
 addons:
   apt:
