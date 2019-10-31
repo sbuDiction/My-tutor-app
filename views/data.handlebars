@@ -9,53 +9,39 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Age</th>
-                            <th scope="col">Experience</th>
-                            <th scope="col">Reviews</th>
-                            <th scope="col">Rating</th>
-                            <th scope="col">Bio</th>
-                            <th scope="col">Subject</th>
-                            <th scope="col">Location</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each data}}
-                        <tr>
-                            <td>{{id}}</td>
-                            <td>{{tutor_names}}</td>
-                            <td>{{age}}</td>
-                            <td>{{experience}}</td>
-                            <td>{{reviews}}</td>
-                            <td>{{tutor_rating}}</td>
-                            <td>{{tutors_bio}}</td>
-                            <td>{{tutor_subject}}</td>
-                            <td> {{tutros_location}}</td>
-                        </tr>
-                        {{/each}}
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Experience</th>
+                <th scope="col">Reviews</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Bio</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{tutor_names}}</td>
+                <td>{{age}}</td>
+                <td>{{experience}}</td>
+                <td>{{reviews}}</td>
+                <td>{{tutor_rating}}</td>
+                <td>{{tutors_bio}}</td>
+                <td>{{tutor_subject}}</td>
+                <td> {{tutros_location}}</td>
+            </tr>
+            {{/each}}
 
-    {{id}}
-    {{tutor_names}}
-    {{age}}
-    {{experience}}
-    {{reviews}}
-    {{tutor_rating}}
-    {{tutors_bio}}
-    {{tutor_subject}}
-    {{tutros_location}}
+        </tbody>
+    </table>
+
 
 </body>
 

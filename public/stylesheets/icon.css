@@ -1,0 +1,18 @@
+i {
+    margin: 0;
+    text-align: center;
+}
+.round {
+    text-align: center;
+    float: right;
+    /* display: inline-block; */
+}
+
+
+.rcorners1 {
+    border-radius: 25px;
+    background: rgb(247, 243, 209);
+    padding: 6px;
+    width: 800px;
+    height: 200px;
+}

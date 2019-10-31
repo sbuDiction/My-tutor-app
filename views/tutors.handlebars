@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/icon.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12-sm">
+                <h5 class="">Search results</h5>
+            </div>
+        </div>
+        {{#each tutor}}
+        <div style="padding-top:5%" class="row justify-content-sm-center">
+            <div style="padding-right:1%" class="">
+                {{!-- <div style="padding-left:200%" class=""><i class="fas fa-user-graduate fa-5x"></i></div> --}}
+                <div style="float: right" class="col-12-sm rcorners1">
+                    <ul>
+                        <li><span><strong>Name: </strong>{{tutor_names}}</span></li>
+                        <li><span><strong>Age: </strong>{{age}}</span></li>
+                        <li><span><strong>Bio: </strong>{{tutors_bio}}</span></li>
+                        <li><span><strong>Bio: </strong>{{experience}}</span></li>
+                        <a href="#" class="badge badge-success">live chat</a>
+                        <a href="#" class="badge badge-info">send message</a>
+                        <a href="/ratings" class="badge badge-warning">rate</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+
+
+    </div>
+</body>
+
+</html>
