@@ -1,10 +1,8 @@
 module.exports = function Mytutor(pool) {
-  //It will store the names Entered for learners who signUp,
+
   let error_message = "";
   let tutors_array = [];
-  //It will store all the subjects the learners want help with.
-  // It will store all the locations Entered by learners.
-  //The learner will have to enter their name
+  
   async function getName(name) {
     let student = name.toUppercase();
     let get_all_names = await pool.query(
@@ -21,7 +19,6 @@ module.exports = function Mytutor(pool) {
     }
   }
 
-  //It will get the subject the learner wants help with
   async function search_database(subject, location) {
     let loc = location.toUppercase();
     let sub = subject.toUppercase();
@@ -66,12 +63,17 @@ module.exports = function Mytutor(pool) {
   }
 
   const display_tutors = () => tutors_array;
+  const display_message = () => error_message;
 
   return {
     add_student_name: getName,
     search_engine: search_database,
     tutors_list: display_tutors,
     build: build_data,
+<<<<<<< HEAD
     display_tutors: tutors
+=======
+    errors: display_message
+>>>>>>> master
   };
 };
