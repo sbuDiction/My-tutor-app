@@ -25,11 +25,8 @@ const pool = new Pool({
 });
 // view engine setup
 const bodyParser = require('body-parser');
-const indexRouter = require('./routes/reg-number-routes');
-const reg_manager = require('./reg-numbers-manager/reg-function');
 
-const Instance_for_reg = reg_manager(pool);
-const routes = indexRouter(Instance_for_reg);
+
 
 app.use(cookieParser('secret'));
 app.use(
@@ -55,13 +52,12 @@ app.engine('handlebars', handlebarSetup);
 app.set('view engine', 'handlebars');
 
 app.use(flash());
+const Routes = require('./routes/index');
+// const Function = require('./My-tutor-manager/my_tutor')
+// const instance_for_my_tutor = Function(pool)
+const instance_for_routes = Routes()
 
-app.get('/', routes.index_route);
-app.post('/add', routes.add_route);
-app.post('/add_town', routes.town);
-app.post('/filter', routes.filter);
-app.get('/delete', routes.delete);
-app.get('/delete_towns', routes.delete_towns);
+app.get('/', instance_for_routes.index_route);
 
 
 app.listen(PORT, () => {
