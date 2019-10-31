@@ -53,11 +53,13 @@ app.set('view engine', 'handlebars');
 
 app.use(flash());
 const Routes = require('./routes/index');
-// const Function = require('./My-tutor-manager/my_tutor')
-// const instance_for_my_tutor = Function(pool)
-const instance_for_routes = Routes()
+const Function = require('./My-tutor-manager/my_tutor')
+const instance_for_my_tutor = Function(pool)
+const instance_for_routes = Routes(instance_for_my_tutor)
 
 app.get('/', instance_for_routes.index_route);
+app.post('/build', instance_for_routes.build);
+app.get('/tutor_builder', instance_for_routes.tutor_builder);
 
 
 app.listen(PORT, () => {
