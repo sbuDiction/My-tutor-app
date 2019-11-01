@@ -23,12 +23,13 @@ module.exports = function Mytutor(pool) {
   async function search_database(subject, location) {
     let loc = location.toUpperCase();
     let sub = subject.toUpperCase();
-    let search_tutor = await pool.query('SELECT * FROM tutors WHERE tutor_subject = $1 OR tutros_location = $2', [sub, loc])
+    let search_tutor = await pool.query('SELECT * FROM tutors WHERE tutor_subject = $1 AND tutros_location = $2', [sub, loc])
     if(search_tutor.rows.length !== 0){
-      // console.log(search_tutor.rows, 'found tutor');
       newList = search_tutor.rows
-      // console.log(newList, 'new list');
       return newList
+    }else {
+      newList = ''
+      error_message = 'Unfortunately there are no tutors avialable currently'
     }
   }
 
@@ -63,7 +64,6 @@ module.exports = function Mytutor(pool) {
   }
 
   const display_tutors = function() {
-    // console.log(newList, "array function");
     return newList;
   };
   const display_message = () => error_message;

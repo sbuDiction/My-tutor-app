@@ -16,3 +16,11 @@ i {
     width: 800px;
     height: 200px;
 }
+
+
+body {
+    background-image: url(../images/education.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+  }
