@@ -1,7 +1,6 @@
 require("../My-tutor-manager/my_tutor");
 module.exports = function(instance_for_my_tutor) {
   async function index(req, res) {
-
     res.render("index");
   }
 
@@ -28,7 +27,7 @@ module.exports = function(instance_for_my_tutor) {
   }
 
   async function build(req, res) {
-    res.render("build");
+    res.render("build", { message: instance_for_my_tutor.success() });
   }
 
   async function get_tutor(req, res) {
