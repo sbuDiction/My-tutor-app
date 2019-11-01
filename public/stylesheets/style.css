@@ -40,7 +40,7 @@ body {
   margin-bottom: 0;
   /* Override default `<label>` margin */
   line-height: 1.5;
-  color: #495057;
+  color: #4e973c;
   pointer-events: none;
   cursor: text;
   /* Match the input under the label */
@@ -78,7 +78,7 @@ body {
   padding-top: .25rem;
   padding-bottom: .25rem;
   font-size: 12px;
-  color: #777;
+  color: rgb(228, 88, 88);
 }
 
 /* Fallback for Edge
@@ -89,7 +89,7 @@ body {
   }
 
   .form-label-group input::-ms-input-placeholder {
-    color: #777;
+    color: rgb(146, 185, 123);
   }
 }
 
@@ -102,7 +102,31 @@ body {
   }
 
   .form-label-group input:-ms-input-placeholder {
-    color: #777;
+    color: rgb(173, 218, 115);
   }
 }
 
+body {
+  background-image: url(../images/cover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body:after {
+  content: "beta";
+  position: fixed;
+  width: 80px;
+  height: 25px;
+  background: #EE8E4A;
+  top: 7px;
+  left: -20px;
+  text-align: center;
+  font-size: 13px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  line-height: 27px;
+  transform: rotate(-45deg);
+}

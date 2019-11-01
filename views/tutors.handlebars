@@ -13,19 +13,21 @@
     <div class="container">
         <div class="row">
             <div class="col-12-sm">
-                <h5 class="">Search results</h5>
+                <h5 style="color: gold;" class="">Search results for tutors __________</h5>
             </div>
         </div>
         {{#each tutor}}
         <div style="padding-top:5%" class="row justify-content-sm-center">
             <div style="padding-right:1%" class="">
-                {{!-- <div style="padding-left:200%" class=""><i class="fas fa-user-graduate fa-5x"></i></div> --}}
+                {{!-- <div style="padding-left:200%" class=""> </div> --}}
                 <div style="float: right" class="col-12-sm rcorners1">
                     <ul>
                         <li><span><strong>Name: </strong>{{tutor_names}}</span></li>
                         <li><span><strong>Age: </strong>{{age}}</span></li>
                         <li><span><strong>Bio: </strong>{{tutors_bio}}</span></li>
-                        <li><span><strong>Bio: </strong>{{experience}}</span></li>
+                        <li><span><strong>Experience: </strong>{{experience}}</span></li>
+                        <li><span><strong>Subject: </strong>{{tutor_subject}}</span></li>
+                        <li><span><strong>Rating: </strong>{{reviews}}</span></li>
                         <a href="#" class="badge badge-success">live chat</a>
                         <a href="#" class="badge badge-info">send message</a>
                         <a href="/ratings" class="badge badge-warning">rate</a>
@@ -34,9 +36,7 @@
             </div>
         </div>
         {{/each}}
-
-
-
+        <div class="alert alert-danger justify-content-sm-center text-center" role="alert">{{msg}}</div>
     </div>
 </body>
 

@@ -1,6 +1,7 @@
 require("../My-tutor-manager/my_tutor");
 module.exports = function(instance_for_my_tutor) {
   async function index(req, res) {
+
     res.render("index");
   }
 
@@ -47,7 +48,7 @@ module.exports = function(instance_for_my_tutor) {
   async function show(req, res) {
     let array = instance_for_my_tutor.tutors_list();
     console.log(array, "route");
-    res.render("tutors", { tutor: array });
+    res.render("tutors", { tutor: array, msg: instance_for_my_tutor.errors() });
   }
 
   async function show_ratings(req, res) {
