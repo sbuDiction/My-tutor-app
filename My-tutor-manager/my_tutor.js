@@ -1,5 +1,6 @@
 module.exports = function Mytutor(pool) {
   let error_message = "";
+  let success = '';
   let newList;
 
   async function getName(name) {
@@ -56,6 +57,7 @@ module.exports = function Mytutor(pool) {
         tutor_location
       ]
     );
+    success = 'Your form has been submitted and will be reviewed ' + ' THANK YOU'
   }
 
   async function tutors() {
@@ -67,6 +69,7 @@ module.exports = function Mytutor(pool) {
     return newList;
   };
   const display_message = () => error_message;
+  const display_success = () => success;
 
   return {
     add_student_name: getName,
@@ -74,6 +77,7 @@ module.exports = function Mytutor(pool) {
     tutors_list: display_tutors,
     build: build_data,
     display_tutors: tutors,
-    errors: display_message
+    errors: display_message,
+    success: display_success
   };
 };

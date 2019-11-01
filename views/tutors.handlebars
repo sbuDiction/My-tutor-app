@@ -36,7 +36,14 @@
             </div>
         </div>
         {{/each}}
-        <div class="alert alert-danger justify-content-sm-center text-center" role="alert">{{msg}}</div>
+        <div class="alert alert-danger justify-content-sm-center text-center fade show" role="alert">
+            <strong>{{msg}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+        <a href="/"> <button style="scroll-padding-: 20%;" type="button" class="btn btn-info">Home</button></a>
     </div>
 </body>
 

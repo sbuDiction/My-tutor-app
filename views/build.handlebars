@@ -5,6 +5,7 @@
     <meta charset="UTF-">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/builder.css">
     <title>Document</title>
 </head>
 
@@ -12,7 +13,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="/build" method="POST">
+                <h1 style="" class="">Sign up to become a tutor</h1>
+            </div>
+            {{!-- <form action="/build" method="POST">
                     <label for="name">Name ( to  characters):</label>
 
                     <input type="text" id="name" name="name" required ="" ="" size="10">
@@ -48,10 +51,62 @@
 
                     <input type="text" id="name" name="location" required ="" ="" size="10">
                     <button type="submit">build</button>
-                </form>
+                </form> --}}
+            {{!-- <div class="row"> --}}
+            <div class="col-12">
 
+
+                <form action="/build" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Name</label>
+                            <input type="text" name="name" class="form-control" id="input" placeholder="Name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Subject</label>
+                            <input type="text" name="subject" class="form-control" id="input" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Location</label>
+                        <input type="text" name="location" class="form-control" id="inputAddress"
+                            placeholder="KHAYELITSHA">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Bio</label>
+                        <input type="text" name="bio" class="form-control" id="input" placeholder="Bio">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Experiance</label>
+                            <input type="text" name="experiance" class="form-control" id="inputCity">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="input">Age</label>
+                            <input type="number" name="age" class="form-control" id="input">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="input">Rating</label>
+                            <input type="number" name="reviews" class="form-control" id="input">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="input">Reviews</label>
+                            <input type="text" name="rating" class="form-control" id="input">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                    <a href="/"> <button style="scroll-padding-left: ;" type="button"
+                            class="btn btn-dark">Home</button></a>
+                </form>
             </div>
+            {{!-- </div> --}}
         </div>
+        <span><strong>{{message}}</strong> </span>
+    </div>
     </div>
 
 </body>
